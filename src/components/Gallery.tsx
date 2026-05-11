@@ -42,7 +42,12 @@ export default function Gallery() {
             >
               <img 
                 src={src} 
-                alt={`Corte ${index + 1}`} 
+                alt={index === 0 ? "Interior elegante de Barbería Solís con sillones clásicos" : 
+                     index === 1 ? "Detalle de herramientas de barbería profesional" :
+                     index === 2 ? "Barbero profesional realizando corte de cabello degradado" :
+                     index === 3 ? "Servicio de corte de cabello masculino premium" :
+                     index === 4 ? "Afeitado tradicional con toalla caliente y navaja" :
+                     "Perfilado y diseño de barba con acabado impecable"} 
                 className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
