@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoadingScreen from '../components/LoadingScreen';
+import CustomCursor from '../components/CustomCursor';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import Stats from '../components/Stats';
+import Services from '../components/Services';
+import Gallery from '../components/Gallery';
+import WhyUs from '../components/WhyUs';
+import Reviews from '../components/Reviews';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
+---
+
+<Layout title="Barbería y Peluquería Solís — Estilo Premium">
+	<LoadingScreen client:load />
+	<CustomCursor client:load />
+	<Navbar client:load />
+	<WhatsAppButton client:load />
+
+	<main>
+		<Hero client:load />
+		<Stats client:visible />
+		<Services client:visible />
+		<Gallery client:visible />
+		<WhyUs client:visible />
+		<Reviews client:visible />
+		<Contact client:visible />
+	</main>
+
+	<Footer client:load />
+</Layout>
+
+<style is:global>
+	/* Custom scroll reveal effect for all sections */
+	section {
+		transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	section.is-visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>
+
+<script>
+	// Simple Intersection Observer for scroll reveal
+	const observerOptions = {
+		root: null,
+		rootMargin: '0px',
+		threshold: 0.1
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('is-visible');
+			}
+		});
+	}, observerOptions);
+
+	document.querySelectorAll('section').forEach(section => {
+		observer.observe(section);
+	});
+</script>
