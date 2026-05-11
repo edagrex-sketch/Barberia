@@ -30,7 +30,7 @@ export default function LoadingScreen() {
                 repeatType: "reverse",
                 ease: "easeInOut"
               }}
-              className="text-5xl md:text-7xl font-playfair font-bold text-accent mb-4"
+              className="text-4xl md:text-7xl font-playfair font-bold text-accent mb-4 text-center px-4"
             >
               BARBERÍA SOLÍS
             </motion.div>
